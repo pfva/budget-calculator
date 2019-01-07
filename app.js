@@ -1,8 +1,10 @@
 // Require the express module
 const express = require('express');
 const path = require('path');
+const flexjson = require('jsonflex')();
 // Create a new web server
 const app = express();
+app.use(flexjson);
 // Tell the web server to serve files
 // from the www folder
 app.use(express.static('www'));
