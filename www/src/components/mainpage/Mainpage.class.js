@@ -13,8 +13,8 @@ export default class Mainpage extends Base {
   }
 
   start(){
-    $('main').empty();
-    this.render('main');
+    // $('main').empty();
+    // this.render('main');
   }
 }
 
