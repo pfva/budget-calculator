@@ -1,9 +1,14 @@
 // Require the express module
 const express = require('express');
+const path = require('path');
 // Create a new web server
 const app = express();
 // Tell the web server to serve files
-// from the www folder
+// from the src folder
 app.use(express.static('src'));
+// Serve index.html on all routes
+app.get(/^[^\.]*$/, (req, res) => {
+  res.sendFile(__dirname + '/src/index.html');
+});
 // Start the web server on port 3000
 app.listen(3000,() => console.log('Listening on port 3000'));
