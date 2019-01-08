@@ -7,7 +7,7 @@ import template from './SiteHeader.template';
  */
 export default class SiteHeader extends Base {
 
-  constructor(){
+  constructor() {
     super();
   }
 

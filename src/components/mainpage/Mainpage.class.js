@@ -7,12 +7,12 @@ import template from './Mainpage.template';
  */
 export default class Mainpage extends Base {
 
-  constructor(){
+  constructor() {
     super();
     this.start();
   }
 
-  start(){
+  start() {
     // $('main').empty();
     // this.render('main');
   }
