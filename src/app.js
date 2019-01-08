@@ -2,6 +2,7 @@ import './base/array-methods';
 import Base from './base/Base.class';
 import JsonFlex from './base/jsonflex';
 import Mainpage from './components/mainpage/Mainpage.class';
+import '../scss/main.scss';
 
 class App extends Base {
   constructor() {
