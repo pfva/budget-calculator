@@ -27,7 +27,7 @@ export default class Income extends Base {
 
   getCategories() {
     this.categories = new Category();
-    return this.categories.template();
+    return this.categories.getIncomeCategories();
   }
 
   getIncomeTotal() {
