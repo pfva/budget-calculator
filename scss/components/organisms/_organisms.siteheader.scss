@@ -6,9 +6,17 @@
   margin-top: $spacing * 2;
   margin-bottom: $spacing * 2;
 
+  @media (min-width: 768px) {
+    font-size: 56px;
+  }
+
   &__subtext {
     font-family: $category-font-family;
     font-size: 16px;
     margin-bottom: $spacing * 8;
+
+    @media (min-width: 768px) {
+      font-size: 18px;
+    }
   }
 }
