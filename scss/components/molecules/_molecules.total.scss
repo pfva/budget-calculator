@@ -32,8 +32,8 @@
     }
 
     &--expenses {
-      color: $dark-red;
-      text-shadow: 0 0 3px $dark-red;
+      color: darken($raspberry-red, 12%);
+      text-shadow: 0 0 3px darken($raspberry-red, 12%);
     }
   }
 }

@@ -32,7 +32,7 @@ export default class Income extends Base {
 
   getIncomeTotal() {
     this.incomeTotal = new Total();
-    return this.incomeTotal.template();
+    return this.incomeTotal.getIncomeTotal();
   }
 }
 

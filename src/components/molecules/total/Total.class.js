@@ -1,5 +1,5 @@
 import Base from '../../../base/Base.class';
-import template from './Total.template';
+import { getIncomeTotal, getExpensesTotal } from './Total.template';
 
 /**
  * Total component
@@ -13,4 +13,5 @@ export default class Total extends Base {
 
 }
 
-Total.prototype.template = template;
+Total.prototype.getIncomeTotal = getIncomeTotal;
+Total.prototype.getExpensesTotal = getExpensesTotal;

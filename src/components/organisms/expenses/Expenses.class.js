@@ -32,7 +32,7 @@ export default class Expenses extends Base {
 
   getExpensesTotal() {
     this.expensesTotal = new Total();
-    return this.expensesTotal.template();
+    return this.expensesTotal.getExpensesTotal();
   }
 }
 
