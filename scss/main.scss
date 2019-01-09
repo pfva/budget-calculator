@@ -1,3 +1,4 @@
+// Import all of the different stylesheet to one main file
 @import "settings/settings.main";           // Global variables and site wide settings
 @import "tools/tools.main";                 // Global functions and mixins
 @import "generic/generic.main";             // Low-specificity, far-reaching rulesets and unclassed HTML elements

@@ -1,5 +1,4 @@
 import Base from '../../../base/Base.class';
-// import template from './Category.template';
 import { getIncomeCategories, getExpensesCategories } from './Category.template';
 
 /**

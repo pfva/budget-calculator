@@ -12,7 +12,8 @@ class App extends Base {
   }
 
   /**
-   * Runs in the constructor and runs everthing
+   * Runs in the constructor and renders 
+   * all of the component templates
    *
    */
   async start() {
