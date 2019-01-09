@@ -1,0 +1,34 @@
+.m-category {
+  display: flex;
+  width: 100%;
+  height: 40px;
+  margin-bottom: $spacing * 2;
+
+  &__title {
+    flex: 3 1 75%;
+    margin-bottom: 0;
+    font-family: $category-font-family;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 40px;
+    box-shadow: inset -16px 0 0 $background-color, inset 0 -2px 0 $text-color;
+  }
+
+  &__input {
+    flex: 1 1 25%;
+    transform: translateY(3px);
+    background-color: $text-color;
+    border-color: $background-color;
+    border-radius: 0;
+    font-family: $category-font-family;
+    transition: background-color, transform 0.3s;
+
+    &:focus {
+      outline: none;
+      border-color: inherit;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+      transform: scaleY(1.15);
+    }
+  }
+}
