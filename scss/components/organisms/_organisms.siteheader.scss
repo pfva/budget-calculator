@@ -1,6 +1,6 @@
 .o-siteheader {
   color: $white;
-  font-family: "Quantico";
+  font-family: $heading-font-family;
   font-weight: 700;
   box-shadow: 0 4px 0 $background-color, 0 7px 0 $primary-color;
   margin-top: $spacing * 2;
