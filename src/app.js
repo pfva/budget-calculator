@@ -19,7 +19,7 @@ class App extends Base {
    */
   async start() {
     this.siteHeader = new SiteHeader();
-    this.siteHeader.render('main');
+    this.siteHeader.render('header');
     this.income = new Income();
     this.income.render('main');
     this.expenses = new Expenses();
