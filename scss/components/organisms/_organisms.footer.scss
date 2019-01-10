@@ -1,0 +1,12 @@
+.o-footer {
+  margin-top: $spacing * 8;
+
+  &__text {
+    margin-bottom: 0;
+    padding: $spacing * 4;
+    border-top: 2px solid $white;
+    color: darken($text-color, 40%);
+    font-family: $category-font-family;
+    font-size: 10px;
+  }
+}

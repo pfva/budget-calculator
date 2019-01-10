@@ -6,5 +6,5 @@ export default function() {
         <p class="o-siteheader__subtext lead text-center">Create your own budget and see what you spend your money on</p>
       </header>
     </div>
-  `
+  `;
 }
