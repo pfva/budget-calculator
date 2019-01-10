@@ -46,7 +46,7 @@ export default class Income extends Base {
         for(let i = 0; i < inputFields.length; i++) {
           inputFieldsSum += Number(inputFields[i].value);
         }
-        incomeTotal.innerHTML = inputFieldsSum;
+        incomeTotal.innerHTML = "$ " + inputFieldsSum;
       });
     }
   }
