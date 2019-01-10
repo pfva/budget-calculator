@@ -47,17 +47,12 @@ export default class Income extends Base {
           inputFieldsSum += Number(inputFields[i].value);
         }
 
-        // Change this to a loop to adhere to DRY
-        if(inputFieldsSum.toString().length > 7) {
-          inputFieldsSum = inputFieldsSum.toString().substring(0, 2) + " " + inputFieldsSum.toString().substring(2, 5) + " " + inputFieldsSum.toString().substring(5);
-        } else if(inputFieldsSum.toString().length > 6) {
-          inputFieldsSum = inputFieldsSum.toString().substring(0, 1) + " " + inputFieldsSum.toString().substring(1, 4) + " " + inputFieldsSum.toString().substring(4);
-        } else if (inputFieldsSum.toString().length > 5) {
-          inputFieldsSum = inputFieldsSum.toString().substring(0, 3) + " " + inputFieldsSum.toString().substring(3);
-        } else if (inputFieldsSum.toString().length > 4) {
-          inputFieldsSum = inputFieldsSum.toString().substring(0, 2) + " " + inputFieldsSum.toString().substring(2);
-        } else if (inputFieldsSum.toString().length > 3) {
-          inputFieldsSum = inputFieldsSum.toString().substring(0, 1) + " " + inputFieldsSum.toString().substring(1);
+        let inputFieldsSumString = inputFieldsSum.toString();
+        if(inputFieldsSumString.length >= 4 && inputFieldsSumString.length <= 6) {
+          inputFieldsSum = inputFieldsSumString.substring(0, inputFieldsSumString.length - 3) + " " + inputFieldsSumString.substring(inputFieldsSumString.length - 3);
+        }
+        if(inputFieldsSumString.length >= 7 && inputFieldsSumString.length <= 9) {
+          inputFieldsSum = inputFieldsSumString.substring(0, inputFieldsSumString.length - 6) + " " + inputFieldsSumString.substring(inputFieldsSumString.length - 6, inputFieldsSumString.length - 3) + " " + inputFieldsSumString.substring(inputFieldsSumString.length - 3);
         }
 
         incomeTotal.innerHTML = "$ " + inputFieldsSum;
