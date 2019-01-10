@@ -3,10 +3,14 @@
 
   &__text {
     margin-bottom: 0;
-    padding: $spacing * 4;
+    padding: ($spacing * 4) 0;
     border-top: 2px solid $white;
     color: darken($text-color, 40%);
     font-family: $category-font-family;
     font-size: 10px;
+
+    @media(min-width: 768px) {
+      padding: $spacing * 4;
+    }
   }
 }
