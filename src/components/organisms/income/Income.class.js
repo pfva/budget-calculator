@@ -18,6 +18,9 @@ export default class Income extends Base {
   start() {
     this.getIncomeHeading();
     this.getCategories();
+    window.onload = () => {
+      this.calculateIncomeTotal();
+    }
   }
 
   getIncomeHeading() {
@@ -33,6 +36,22 @@ export default class Income extends Base {
   getIncomeTotal() {
     this.incomeTotal = new Total();
     return this.incomeTotal.getIncomeTotal();
+  }
+
+  calculateIncomeTotal() {
+    let inputFields = document.querySelectorAll('.m-category__input--income');
+    let inputFieldsSum = 0;
+    let incomeTotal = document.querySelector('.m-total__sum--income');
+
+    for(let i = 0; i < inputFields.length; i++) {
+      inputFields[i].addEventListener("keyup", () => {
+        inputFieldsSum = 0;
+        for(let i = 0; i < inputFields.length; i++) {
+          inputFieldsSum += Number(inputFields[i].value);
+        }
+        incomeTotal.innerHTML = inputFieldsSum;
+      });
+    }
   }
 }
 

@@ -5,7 +5,7 @@ function getIncomeCategories() {
         <p class="m-category__title">
           ${name}
         </p>
-        <input type="text" class="m-category__input form-control text-right" placeholder="$" aria-label="Sum input">
+        <input type="text" class="m-category__input m-category__input--income form-control text-right" placeholder="$" aria-label="Sum input">
       </div>
     `;
   }).join('');
@@ -18,7 +18,7 @@ function getExpensesCategories() {
         <p class="m-category__title">
           ${name}
         </p>
-        <input type="text" class="m-category__input form-control text-right" placeholder="$" aria-label="Sum input">
+        <input type="text" class="m-category__input m-category__input--expenses form-control text-right" placeholder="$" aria-label="Sum input">
       </div>
     `;
   }).join('');
