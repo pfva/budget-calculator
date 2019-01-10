@@ -34,6 +34,22 @@ export default class Expenses extends Base {
     this.expensesTotal = new Total();
     return this.expensesTotal.getExpensesTotal();
   }
+
+  calculateExpensesTotal() {
+    let inputFields = document.querySelectorAll('.m-category__input--expenses');
+    let inputFieldsSum = 0;
+    let expensesTotal = document.querySelector('.m-total__sum--expenses');
+
+    for(let i = 0; i < inputFields.length; i++) {
+      inputFields[i].addEventListener("keyup", () => {
+        inputFieldsSum = 0;
+        for(let i = 0; i < inputFields.length; i++) {
+          inputFieldsSum += Number(inputFields[i].value);
+        }
+        expensesTotal.innerHTML = inputFieldsSum;
+      });
+    }
+  }
 }
 
 Expenses.prototype.template = template;

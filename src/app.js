@@ -26,6 +26,10 @@ class App extends Base {
     this.expenses.render('main');
     this.footer = new Footer();
     this.footer.render('footer');
+    window.onload = () => {
+      this.income.calculateIncomeTotal();
+      this.expenses.calculateExpensesTotal();
+    }
   }
 }
 

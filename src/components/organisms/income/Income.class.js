@@ -18,9 +18,6 @@ export default class Income extends Base {
   start() {
     this.getIncomeHeading();
     this.getCategories();
-    window.onload = () => {
-      this.calculateIncomeTotal();
-    }
   }
 
   getIncomeHeading() {
