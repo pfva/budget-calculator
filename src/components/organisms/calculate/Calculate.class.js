@@ -26,18 +26,37 @@ export default class Calculate extends Base {
 
   getCalculateText() {
     this.calculateText = new CalculateText();
-    return this.calculateText.positiveSum();
+    return this.calculateText.template();
   }
 
-  showCalculateText() {
+  displayCalculateText() {
     let calculateButton = document.querySelector('.a-button');
-    let calculateText = document.querySelector('.a-calculatetext');
-    console.log(calculateButton);
-    console.log(calculateText);
 
     calculateButton.addEventListener("click", () => {
-      calculateText.classList.remove('u-hidden');
-      calculateText.classList.add('u-fadein');
+      let incomeTotal = document.querySelector('.m-total__sum--income');
+      let expensesTotal = document.querySelector('.m-total__sum--expenses');
+
+      // Clean up dollar-prefixed strings to number
+      let incomeWithoutDollar = incomeTotal.innerHTML.slice(2);
+      let incomeWithoutSpaces = incomeWithoutDollar.replace(/ /g, '');
+      let incomeNumber = parseInt(incomeWithoutSpaces);
+      let expensesWithoutDollar = expensesTotal.innerHTML.slice(2);
+      let expensesWithoutSpaces = expensesWithoutDollar.replace(/ /g, '');
+      let expensesNumber = parseInt(expensesWithoutSpaces);
+
+      // Display correct part of template
+      if(incomeNumber >= expensesNumber) {
+        console.log("over");
+        let calculateText = document.querySelector('.a-calculatetext-positive');
+        calculateText.classList.remove('u-hidden');
+        calculateText.classList.add('u-fadein');
+      } else {
+        console.log("under");
+        let calculateText = document.querySelector('.a-calculatetext-negative');
+        calculateText.classList.remove('u-hidden');
+        calculateText.classList.add('u-fadein');
+      }
+      calculateButton.classList.add('disabled');
     });
   }
 }

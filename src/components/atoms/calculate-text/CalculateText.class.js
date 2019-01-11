@@ -1,5 +1,5 @@
 import Base from '../../../base/Base.class';
-import { positiveSum, negativeSum } from './CalculateText.template';
+import template from './CalculateText.template';
 
 /**
  * CalculateText component
@@ -12,5 +12,4 @@ export default class CalculateText extends Base {
   }
 }
 
-CalculateText.prototype.positiveSum = positiveSum;
-CalculateText.prototype.negativeSum = negativeSum;
+CalculateText.prototype.template = template;
