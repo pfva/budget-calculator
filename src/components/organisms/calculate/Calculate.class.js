@@ -37,6 +37,7 @@ export default class Calculate extends Base {
 
     calculateButton.addEventListener("click", () => {
       calculateText.classList.remove('u-hidden');
+      calculateText.classList.add('u-fadein');
     });
   }
 }
