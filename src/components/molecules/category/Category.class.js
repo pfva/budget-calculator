@@ -10,7 +10,7 @@ export default class Category extends Base {
   constructor() {
     super();
     this.incomeCategoryNames = ['Salary', 'Benefits', 'Other Income'];
-    this.expensesCategoryNames = ['Rent', 'Mortgage', 'Electricity', 'Heating/Water', 'Food', 'Insurance', 'Car/Transport', 'Leisure', 'Savings'];
+    this.expensesCategoryNames = ['Rent/Mortgage', 'Electricity', 'Heating/Water', 'Food/Groceries', 'Insurance', 'Transportation', 'Phone and Internet', 'Clothing and shoes', 'Debt', 'Savings', 'Entertainment'];
   }
 
 }
