@@ -2,14 +2,35 @@
   font-family: $category-font-family;
 
   &__main {
-    font-size: 28px;
+    font-size: 24px;
     font-weight: 300;
     text-align: center;
     margin-bottom: $spacing;
+
+    &--sum-positive {
+      color: $green;
+      font-weight: 400;
+      text-shadow: 0 0 3px $green;
+
+      @media (min-width: 768px) {
+        font-size: 28px;
+      }
+    }
+
+    &--sum-negative {
+      color: darken($raspberry-red, 12%);
+      font-weight: 400;
+      text-shadow: 0 0 3px darken($raspberry-red, 12%);
+
+      @media (min-width: 768px) {
+        font-size: 28px;
+      }
+    }
   }
 
   &__subtext {
     font-size: 18px;
+    font-weight: 300;
     text-align: center;
 
     &--emoji {
