@@ -28,6 +28,17 @@ export default class Calculate extends Base {
     this.calculateText = new CalculateText();
     return this.calculateText.template();
   }
+
+  showCalculateText() {
+    let calculateButton = document.querySelector('.a-button');
+    let calculateText = document.querySelector('.a-calculatetext');
+    console.log(calculateButton);
+    console.log(calculateText);
+
+    calculateButton.addEventListener("click", () => {
+      calculateText.classList.remove('u-hidden');
+    });
+  }
 }
 
 Calculate.prototype.template = template;

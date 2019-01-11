@@ -32,6 +32,7 @@ class App extends Base {
     window.onload = () => {
       this.income.calculateIncomeTotal();
       this.expenses.calculateExpensesTotal();
+      this.calculate.showCalculateText();
     }
   }
 }
