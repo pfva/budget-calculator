@@ -47,11 +47,15 @@ export default class Calculate extends Base {
       // Display correct part of template
       if(incomeNumber >= expensesNumber) {
         console.log("over");
+        let positiveSum = document.querySelector('.a-calculatetext__main--sum-positive');
+        positiveSum.innerHTML = "$ " + (incomeNumber - expensesNumber);
         let calculateText = document.querySelector('.a-calculatetext-positive');
         calculateText.classList.remove('u-hidden');
         calculateText.classList.add('u-fadein');
       } else {
         console.log("under");
+        let negativeSum = document.querySelector('.a-calculatetext__main--sum-negative');
+        negativeSum.innerHTML = "$ " + (incomeNumber - expensesNumber);
         let calculateText = document.querySelector('.a-calculatetext-negative');
         calculateText.classList.remove('u-hidden');
         calculateText.classList.add('u-fadein');

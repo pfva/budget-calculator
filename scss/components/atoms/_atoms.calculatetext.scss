@@ -11,6 +11,8 @@
       color: $green;
       font-weight: 400;
       text-shadow: 0 0 3px $green;
+      margin-right: $spacing;
+      margin-left: $spacing;
 
       @media (min-width: 768px) {
         font-size: 28px;
@@ -21,6 +23,8 @@
       color: darken($raspberry-red, 12%);
       font-weight: 400;
       text-shadow: 0 0 3px darken($raspberry-red, 12%);
+      margin-right: $spacing;
+      margin-left: $spacing;
 
       @media (min-width: 768px) {
         font-size: 28px;
