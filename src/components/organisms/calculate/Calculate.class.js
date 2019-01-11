@@ -26,7 +26,7 @@ export default class Calculate extends Base {
 
   getCalculateText() {
     this.calculateText = new CalculateText();
-    return this.calculateText.template();
+    return this.calculateText.positiveSum();
   }
 
   showCalculateText() {
