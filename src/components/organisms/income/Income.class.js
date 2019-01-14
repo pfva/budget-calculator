@@ -35,6 +35,17 @@ export default class Income extends Base {
     return this.incomeTotal.getIncomeTotal();
   }
 
+  animateNextArrow() {
+    let inputFields = document.querySelectorAll('.m-category__input--income');
+    let lastInput = inputFields[inputFields.length - 1];
+    lastInput.addEventListener("blur", () => {
+      let incomeArrow = document.querySelector('.a-incomeheading__arrow-icon');
+      incomeArrow.classList.remove('u-hovering');
+      let expensesArrow = document.querySelector('.a-expensesheading__arrow-icon');
+      expensesArrow.classList.add('u-hovering');
+    });
+  }
+
   calculateIncomeTotal() {
     let inputFields = document.querySelectorAll('.m-category__input--income');
     let inputFieldsSum = 0;

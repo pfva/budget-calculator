@@ -31,6 +31,7 @@ class App extends Base {
     this.footer.render('footer');
     window.onload = () => {
       this.income.calculateIncomeTotal();
+      this.income.animateNextArrow();
       this.expenses.calculateExpensesTotal();
       this.calculate.displayCalculateText();
     }

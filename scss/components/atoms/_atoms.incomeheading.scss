@@ -13,19 +13,6 @@
   &__arrow-icon {
     color: $green;
     margin-right: $spacing * 4;
-    animation: float 2s ease-in-out infinite;
-
-    @keyframes float {
-      0% {
-        transform: translateY(-4px);
-      }
-      50% {
-        transform: translateY(4px);
-      }
-      100% {
-        transform: translateY(-4px);
-      }
-    }
 
     @media (min-width: 992px) {
       margin-right: $spacing * 8;
