@@ -1,4 +1,6 @@
 .a-expensesheading {
+  display: flex;
+  justify-content: space-between;
   color: $white;
   font-family: $heading-font-family;
   font-size: 28px;
@@ -10,10 +12,8 @@
   
   &__arrow-icon {
     color: darken($raspberry-red, 12%);
-    margin-left: $spacing;
-    // Enable animation after Income fields have all been filled out?
-    // Good for UX, one thing at a time for the user
-    // animation: float 2.5s ease-in-out infinite;
+    margin-right: $spacing * 4;
+    // animation: float 2s ease-in-out infinite;
 
     @keyframes float {
       0% {
@@ -25,6 +25,10 @@
       100% {
         transform: translatey(-4px);
       }
+    }
+
+    @media (min-width: 992px) {
+      margin-right: $spacing * 8;
     }
   }
 }

@@ -1,4 +1,6 @@
 .a-incomeheading {
+  display: flex;
+  justify-content: space-between;
   color: $white;
   font-family: $heading-font-family;
   font-size: 28px;
@@ -10,19 +12,23 @@
 
   &__arrow-icon {
     color: $green;
-    margin-left: $spacing;
-    animation: float 2.5s ease-in-out infinite;
+    margin-right: $spacing * 4;
+    animation: float 2s ease-in-out infinite;
 
     @keyframes float {
       0% {
-        transform: translatey(-4px);
+        transform: translateY(-4px);
       }
       50% {
-        transform: translatey(4px);
+        transform: translateY(4px);
       }
       100% {
-        transform: translatey(-4px);
+        transform: translateY(-4px);
       }
+    }
+
+    @media (min-width: 992px) {
+      margin-right: $spacing * 8;
     }
   }
 }
