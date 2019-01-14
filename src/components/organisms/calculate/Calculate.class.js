@@ -45,13 +45,19 @@ export default class Calculate extends Base {
       let expensesNumber = parseInt(expensesWithoutSpaces);
 
       let totalSum = incomeNumber - expensesNumber;
-      console.log(totalSum);
       let totalStr = totalSum.toString();
-      console.log(totalStr);
-      if(totalStr.length >= 4 && totalStr.length <= 6) {
-        totalStr = totalStr.substring(0, totalStr.length - 3) + " " + totalStr.substring(totalStr.length - 3);
-      } else if(totalStr.length >= 7 && totalStr.length <= 9) {
-        totalStr = totalStr.substring(0, totalStr.length - 6) + " " + totalStr.substring(totalStr.length - 6, totalStr.length - 3) + " " + totalStr.substring(totalStr.length - 3);
+      if(totalSum >= 0) {
+        if(totalStr.length >= 4 && totalStr.length <= 6) {
+          totalStr = totalStr.substring(0, totalStr.length - 3) + " " + totalStr.substring(totalStr.length - 3);
+        } else if(totalStr.length >= 7 && totalStr.length <= 9) {
+          totalStr = totalStr.substring(0, totalStr.length - 6) + " " + totalStr.substring(totalStr.length - 6, totalStr.length - 3) + " " + totalStr.substring(totalStr.length - 3);
+        }
+      } else if(totalSum < 0) {
+        if(totalStr.length >= 5 && totalStr.length <= 7) {
+          totalStr = totalStr.substring(0, totalStr.length - 3) + " " + totalStr.substring(totalStr.length - 3);
+        } else if(totalStr.length >= 8 && totalStr.length <= 10) {
+          totalStr = totalStr.substring(0, totalStr.length - 6) + " " + totalStr.substring(totalStr.length - 6, totalStr.length - 3) + " " + totalStr.substring(totalStr.length - 3);
+        }
       }
 
       // Display correct part of template
