@@ -47,12 +47,12 @@ export default class Income extends Base {
           inputFieldsSum += Number(inputFields[i].value);
         }
 
-        let inputFieldsSumString = inputFieldsSum.toString();
-        if(inputFieldsSumString.length >= 4 && inputFieldsSumString.length <= 6) {
-          inputFieldsSum = inputFieldsSumString.substring(0, inputFieldsSumString.length - 3) + " " + inputFieldsSumString.substring(inputFieldsSumString.length - 3);
+        let totalStr = inputFieldsSum.toString();
+        if(totalStr.length >= 4 && totalStr.length <= 6) {
+          inputFieldsSum = totalStr.substring(0, totalStr.length - 3) + " " + totalStr.substring(totalStr.length - 3);
         }
-        if(inputFieldsSumString.length >= 7 && inputFieldsSumString.length <= 9) {
-          inputFieldsSum = inputFieldsSumString.substring(0, inputFieldsSumString.length - 6) + " " + inputFieldsSumString.substring(inputFieldsSumString.length - 6, inputFieldsSumString.length - 3) + " " + inputFieldsSumString.substring(inputFieldsSumString.length - 3);
+        if(totalStr.length >= 7 && totalStr.length <= 9) {
+          inputFieldsSum = totalStr.substring(0, totalStr.length - 6) + " " + totalStr.substring(totalStr.length - 6, totalStr.length - 3) + " " + totalStr.substring(totalStr.length - 3);
         }
 
         incomeTotal.innerHTML = "$ " + inputFieldsSum;
