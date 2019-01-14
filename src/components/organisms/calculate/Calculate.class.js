@@ -55,20 +55,22 @@ export default class Calculate extends Base {
       }
 
       // Display correct part of template
+      let positiveCalculateText = document.querySelector('.a-calculatetext-positive');
+      let negativeCalculateText = document.querySelector('.a-calculatetext-negative');
+
       if(incomeNumber >= expensesNumber) {
         let positiveSum = document.querySelector('.a-calculatetext__main--sum-positive');
         positiveSum.innerHTML = "$ " + totalStr;
-        let calculateText = document.querySelector('.a-calculatetext-positive');
-        calculateText.classList.remove('u-hidden');
-        calculateText.classList.add('u-fadein');
+        negativeCalculateText.classList.add('u-hidden');
+        positiveCalculateText.classList.remove('u-hidden');
+        positiveCalculateText.classList.add('u-fadein');
       } else {
         let negativeSum = document.querySelector('.a-calculatetext__main--sum-negative');
         negativeSum.innerHTML = "$ " + totalStr;
-        let calculateText = document.querySelector('.a-calculatetext-negative');
-        calculateText.classList.remove('u-hidden');
-        calculateText.classList.add('u-fadein');
+        positiveCalculateText.classList.add('u-hidden');
+        negativeCalculateText.classList.remove('u-hidden');
+        negativeCalculateText.classList.add('u-fadein');
       }
-      calculateButton.classList.add('disabled');
     });
   }
 }
