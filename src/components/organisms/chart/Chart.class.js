@@ -80,7 +80,8 @@ export default class Chart extends Base {
       .attr("transform", function(d) {
         d.innerRadius = 0;
         d.outerRadius = radius;
-        return "translate(" + arc.centroid(d) + ")";
+        let c =  arc.centroid(d);
+        return "translate(" + c[0]*2.5 +"," + c[1]*2.5 + ")";
       })
       .attr("text-anchor", "middle")
       .text((d, i) => data[i].label);
