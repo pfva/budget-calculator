@@ -40,6 +40,9 @@ class App extends Base {
       this.calculate.displayCalculateText();
       this.chart.drawChart();
     }
+    window.onresize = () => {
+      this.chart.drawChart();
+    }
   }
 }
 

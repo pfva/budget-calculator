@@ -18,23 +18,27 @@ export default class Chart extends Base {
   }
 
   drawChart() {
-    var data = this.expensesData;
-
-    var svg = d3.select("svg"),
-      width = svg.attr("width"),
-      height = svg.attr("height"),
+    let data = this.expensesData;
+    let chartEl = document.querySelector('.o-chart');
+    chartEl.innerHTML = "";
+    let chartStyles = window.getComputedStyle(chartEl);
+    console.log(chartStyles.width, chartStyles.height);
+    
+    let svg = d3.select("svg"),
+      width = parseInt(chartStyles.width),
+      height = parseInt(chartStyles.height),
       radius = Math.min(width, height) / 2,
       g = svg.append("g").attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
-    var color = d3.scaleOrdinal(['#005293','#3ba8e8','#1e2f4f','#1CB5E0']);
+    let color = d3.scaleOrdinal(['#005293','#3ba8e8','#1e2f4f','#1CB5E0']);
 
-    var pie = d3.pie();
+    let pie = d3.pie();
 
-    var arc = d3.arc()
+    let arc = d3.arc()
       .innerRadius(0)
       .outerRadius(radius);
 
-    var arcs = g.selectAll("arc")
+    let arcs = g.selectAll("arc")
       .data(pie(data))
       .enter()
       .append("g")
