@@ -38,6 +38,7 @@ class App extends Base {
       this.income.animateNextArrow();
       this.expenses.calculateExpensesTotal();
       this.calculate.displayCalculateText();
+      this.chart.drawChart();
     }
   }
 }
