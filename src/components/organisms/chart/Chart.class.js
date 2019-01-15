@@ -17,8 +17,6 @@ export default class Chart extends Base {
   start() {
   }
 
-  // Anropa på click på button
-  // Lägger in alla expenses i arrayen
   getExpenses() {
     let inputFields = document.querySelectorAll('.m-category__input--expenses');
     for(let i = 0; i < inputFields.length; i++) {
@@ -35,6 +33,7 @@ export default class Chart extends Base {
       svg.classList.remove('o-chart--invisible-height');
       svg.classList.remove('u-invisible');
       svg.classList.add('u-fadein');
+      this.expensesData = [];
       this.getExpenses();
       this.drawChart();
     });
