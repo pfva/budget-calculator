@@ -10,11 +10,31 @@ export default class Chart extends Base {
 
   constructor() {
     super();
-    this.expensesData = [1, 1, 2, 3, 5, 8];
+    this.expensesData = [];
     this.start();
   }
 
   start() {
+    this.showChart();
+  }
+
+  // Anropa på click på button
+  // Lägger in alla expenses i arrayen
+  getExpenses() {
+    let inputFields = document.querySelectorAll('.m-category__input--expenses');
+    for(let i = 0; i < inputFields.length; i++) {
+      if(inputFields[i].value) {
+        this.expensesData.push(parseInt(inputFields[i].value));
+      }
+    }
+  }
+
+  showChart() {
+    let calculateButton = document.querySelector('.a-button');
+    calculateButton.addEventListener("click", () => {
+      this.getExpenses();
+      this.drawChart();
+    });
   }
 
   drawChart() {
@@ -22,7 +42,6 @@ export default class Chart extends Base {
     let chartEl = document.querySelector('.o-chart');
     chartEl.innerHTML = "";
     let chartStyles = window.getComputedStyle(chartEl);
-    console.log(chartStyles.width, chartStyles.height);
     
     let svg = d3.select("svg"),
       width = parseInt(chartStyles.width),
