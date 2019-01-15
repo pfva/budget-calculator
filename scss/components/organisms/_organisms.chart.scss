@@ -1,6 +1,6 @@
 .o-chart {
   width: calc(100% - 50px);
-  height: 400px;
+  height: 520px;
 
   @media(min-width: 768px) {
     margin-top: $spacing * 6;
@@ -8,5 +8,18 @@
 
   &--invisible-height {
     height: 1px;
+  }
+
+  g.arc {
+    text {
+      fill: $text-color;
+      font-family: $category-font-family;
+      font-size: 12px;
+      font-weight: 300;
+
+      @media (min-width: 768px) {
+        font-size: 16px;
+      }
+    }
   }
 }
