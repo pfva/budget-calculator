@@ -4,6 +4,7 @@ import SiteHeader from './components/organisms/site-header/SiteHeader.class';
 import Income from './components/organisms/income/Income.class';
 import Expenses from './components/organisms/expenses/Expenses.class';
 import Calculate from './components/organisms/calculate/Calculate.class';
+import Chart from './components/organisms/chart/Chart.class';
 import Footer from './components/organisms/footer/Footer.class';
 import * as d3 from 'd3';
 import '../scss/main.scss';
@@ -28,6 +29,8 @@ class App extends Base {
     this.expenses.render('main');
     this.calculate = new Calculate();
     this.calculate.render('main');
+    this.chart = new Chart();
+    this.chart.render('main');
     this.footer = new Footer();
     this.footer.render('footer');
     window.onload = () => {
