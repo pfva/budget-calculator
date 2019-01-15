@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/pfva/budget-calculator#readme",
   "dependencies": {
+    "d3": "^5.7.0",
     "express": "^4.16.4",
     "jsonflex": "^1.0.10",
     "node-sass": "^4.11.0",
