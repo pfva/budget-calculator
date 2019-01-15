@@ -11,6 +11,14 @@
   }
 
   g.arc {
+    path {
+      &:hover {
+        stroke: lighten($background-color, 70%);
+        stroke-width: 4px
+        // filter: drop-shadow(2px 2px 8px rgba(255,255,255,0.8));
+      }
+    }
+
     text {
       fill: $text-color;
       font-family: $category-font-family;
