@@ -15,7 +15,6 @@ export default class Chart extends Base {
   }
 
   start() {
-    this.showChart();
   }
 
   // Anropa på click på button
@@ -30,8 +29,12 @@ export default class Chart extends Base {
   }
 
   showChart() {
+    let svg = document.querySelector("svg");
     let calculateButton = document.querySelector('.a-button');
     calculateButton.addEventListener("click", () => {
+      svg.classList.remove('o-chart--invisible-height');
+      svg.classList.remove('u-invisible');
+      svg.classList.add('u-fadein');
       this.getExpenses();
       this.drawChart();
     });

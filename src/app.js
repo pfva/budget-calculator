@@ -39,7 +39,7 @@ class App extends Base {
       this.expenses.calculateExpensesTotal();
       this.calculate.displayCalculateText();
       this.chart.getExpenses();
-      // this.chart.drawChart();
+      this.chart.showChart();
     }
     window.onresize = () => {
       this.chart.drawChart();
