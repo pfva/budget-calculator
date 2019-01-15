@@ -20,8 +20,14 @@ export default class Chart extends Base {
   getExpenses() {
     let inputFields = document.querySelectorAll('.m-category__input--expenses');
     for(let i = 0; i < inputFields.length; i++) {
+      let categoryTitle = inputFields[i].previousElementSibling.innerHTML.trim();
       if(inputFields[i].value) {
-        this.expensesData.push(parseInt(inputFields[i].value));
+        this.expensesData.push(
+          {
+            "label": categoryTitle,
+            "value": parseInt(inputFields[i].value)
+          }
+        );
       }
     }
   }
@@ -53,7 +59,8 @@ export default class Chart extends Base {
 
     let color = d3.scaleOrdinal(['#005293','#3ba8e8','#1e2f4f','#1CB5E0']);
 
-    let pie = d3.pie();
+    let pie = d3.pie()
+      .value((d) => d.value);
 
     let arc = d3.arc()
       .innerRadius(0)
@@ -66,11 +73,18 @@ export default class Chart extends Base {
       .attr("class", "arc");
 
     arcs.append("path")
-    .attr("fill", function(d, i) {
-        return color(i);
-    })
-    .attr("d", arc);
-  }
+      .attr("fill", (d, i) => color(i))
+      .attr("d", arc);
+
+    arcs.append("svg:text")
+      .attr("transform", function(d) {
+        d.innerRadius = 0;
+        d.outerRadius = radius;
+        return "translate(" + arc.centroid(d) + ")";
+      })
+      .attr("text-anchor", "middle")
+      .text((d, i) => data[i].label);
+      }
 
 }
 
