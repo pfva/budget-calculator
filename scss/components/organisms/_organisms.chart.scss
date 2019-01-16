@@ -23,10 +23,12 @@
     }
 
     text {
-      fill: $text-color;
+      fill: $white;
       font-family: $category-font-family;
       font-size: 12px;
       font-weight: 300;
+      text-shadow: 0 0 20px #000;
+      pointer-events: none;
       opacity: 0;
       transition: opacity 0.3s;
 
