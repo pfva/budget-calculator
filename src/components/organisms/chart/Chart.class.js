@@ -19,13 +19,22 @@ export default class Chart extends Base {
 
   getExpenses() {
     let inputFields = document.querySelectorAll('.m-category__input--expenses');
+    let expensesTotal = document.querySelector('.m-total__sum--expenses');
+    let expensesWithoutDollar = expensesTotal.innerHTML.slice(2);
+    let expensesWithoutSpaces = expensesWithoutDollar.replace(/ /g, '');
+    let total = parseInt(expensesWithoutSpaces);
     for(let i = 0; i < inputFields.length; i++) {
       let categoryTitle = inputFields[i].previousElementSibling.innerHTML.trim();
+      let value = parseInt(inputFields[i].value);
+      let percentage = value / total;
+      let percentageRounded = (percentage * 100).toFixed(0);
+      let percentageWithSign = percentageRounded.toString() + "%";
       if(inputFields[i].value) {
         this.expensesData.push(
           {
             "label": categoryTitle,
-            "value": parseInt(inputFields[i].value)
+            "value": value,
+            "percentage": percentageWithSign
           }
         );
       }
@@ -84,10 +93,16 @@ export default class Chart extends Base {
         d.innerRadius = 0;
         d.outerRadius = radius;
         let c =  arc.centroid(d);
-        return "translate(" + c[0]*1.5 +"," + c[1]*1.5 + ")";
+        return "translate(" + c[0]*1.3 +"," + c[1]*1.3 + ")";
       })
       .attr("text-anchor", "middle")
-      .text((d, i) => data[i].label);
+      .attr("x", 0)
+      .attr("y", "-0.7em")
+      .text((d, i) => data[i].label)
+      .append("tspan")
+      .attr("x", 0)
+      .attr("y", "0.7em")
+      .text(d => d.data.percentage);
       }
 
 }
