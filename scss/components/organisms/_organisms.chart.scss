@@ -11,12 +11,15 @@
   }
 
   g.arc {
+    transition: all 1s;
+
+    &:hover {
+      transform-origin: 50% 50% 50%;
+      transform: scale(0.95);
+    }
     path {
-      &:hover {
-        stroke: lighten($background-color, 70%);
-        stroke-width: 4px
-        // filter: drop-shadow(2px 2px 8px rgba(255,255,255,0.8));
-      }
+      // stroke: lighten($background-color, 70%);
+      // stroke-width: 4px;
     }
 
     text {
@@ -24,9 +27,17 @@
       font-family: $category-font-family;
       font-size: 12px;
       font-weight: 300;
+      opacity: 0;
+      transition: opacity 0.3s;
 
       @media (min-width: 768px) {
         font-size: 16px;
+      }
+    }
+
+    &:hover {
+      text {
+        opacity: 1;
       }
     }
   }
