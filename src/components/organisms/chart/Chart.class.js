@@ -57,7 +57,9 @@ export default class Chart extends Base {
       radius = Math.min(width, height) / 2,
       g = svg.append("g").attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
-    let color = d3.scaleOrdinal(['#005293','#3ba8e8','#1e2f4f','#1CB5E0']);
+    let color = d3.scaleOrdinal()
+    .domain(data.map(d => d.name))
+    .range(d3.quantize(t => d3.interpolateBlues(t * 0.4 + 0.7), data.length).reverse());
 
     let pie = d3.pie()
       .value((d) => d.value);
@@ -74,6 +76,7 @@ export default class Chart extends Base {
 
     arcs.append("path")
       .attr("fill", (d, i) => color(i))
+      .attr("stroke", "lightgray")
       .attr("d", arc);
 
     arcs.append("svg:text")
