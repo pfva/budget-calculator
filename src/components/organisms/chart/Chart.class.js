@@ -99,7 +99,7 @@ export default class Chart extends Base {
         d.innerRadius = 0;
         d.outerRadius = radius;
         let c =  arc.centroid(d);
-        return "translate(" + c[0]*1.5 +"," + c[1]*1.5 + ")";
+        return "translate(" + c[0]*1.4 +"," + c[1]*1.4 + ")";
       })
 
     text.append("tspan")
