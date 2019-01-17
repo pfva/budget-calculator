@@ -67,10 +67,11 @@ export default class Chart extends Base {
       g = svg.append("g").attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
     let color = d3.scaleOrdinal()
-    .domain(data.map(d => d.name))
-    .range(d3.quantize(t => d3.interpolateBlues(t * 0.4 + 0.7), data.length).reverse());
+      .domain(data.map(d => d.name))
+      .range(d3.quantize(t => d3.interpolateSpectral(t * 0.9), data.length + 1));
 
     let pie = d3.pie()
+      .sort(null)
       .value((d) => d.value);
 
     let arc = d3.arc()
@@ -103,7 +104,7 @@ export default class Chart extends Base {
       .attr("x", 0)
       .attr("y", "0.7em")
       .text(d => d.data.percentage);
-      }
+  }
 
 }
 
