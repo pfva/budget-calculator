@@ -59,43 +59,50 @@ export default class Chart extends Base {
     let chartEl = document.querySelector('.o-chart');
     chartEl.innerHTML = "";
     let chartStyles = window.getComputedStyle(chartEl);
-    
-    let svg = d3.select("svg"),
-      width = parseInt(chartStyles.width),
-      height = parseInt(chartStyles.height),
-      radius = Math.min(width, height) / 2,
-      g = svg.append("g").attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
     let color = d3.scaleOrdinal()
       .domain(data.map(d => d.name))
       .range(d3.quantize(t => d3.interpolateSpectral(t * 0.9), data.length + 1));
 
+    let width = parseInt(chartStyles.width);
+    let height = parseInt(chartStyles.height);
+    let radius = Math.min(width, height) / 2;
+
     let pie = d3.pie()
       .sort(null)
       .value((d) => d.value);
 
+    let arcs = pie(data);
+
     let arc = d3.arc()
       .innerRadius(0)
       .outerRadius(radius);
+    
+    let svg = d3.select("svg");
 
-    let arcs = g.selectAll("arc")
-      .data(pie(data))
+    let g = svg.append("g")
+      .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+    g.selectAll("path")
+    .data(arcs)
+    .enter()
+    .append("path")
+    .attr("fill", (d, i) => color(i))
+    .attr("stroke", "lightgray")
+    .attr("d", arc);
+
+    let text = g.selectAll("text")
+      .data(arcs)
       .enter()
-      .append("g")
-      .attr("class", "arc");
-
-    arcs.append("path")
-      .attr("fill", (d, i) => color(i))
-      .attr("stroke", "lightgray")
-      .attr("d", arc);
-
-    arcs.append("svg:text")
+      .append("text")
       .attr("transform", function(d) {
         d.innerRadius = 0;
         d.outerRadius = radius;
         let c =  arc.centroid(d);
-        return "translate(" + c[0]*1.3 +"," + c[1]*1.3 + ")";
+        return "translate(" + c[0]*1.5 +"," + c[1]*1.5 + ")";
       })
+
+    text.append("tspan")
       .attr("text-anchor", "middle")
       .attr("x", 0)
       .attr("y", "-0.7em")
@@ -105,7 +112,6 @@ export default class Chart extends Base {
       .attr("y", "0.7em")
       .text(d => d.data.percentage);
   }
-
 }
 
 Chart.prototype.template = template;

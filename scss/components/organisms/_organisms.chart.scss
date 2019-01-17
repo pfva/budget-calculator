@@ -10,16 +10,13 @@
     height: 1px;
   }
 
-  g.arc {
-    transition: all 1s;
-
-    &:hover {
-      @media(min-width: 768px) {
-        transform-origin: 50% 50% 50%;
-        transform: scale(0.95);
-
-        text {
-          opacity: 1;
+  g {
+    path {
+      transition: all 1s;
+      &:hover {
+        @media(min-width: 768px) {
+          transform-origin: 50% 50% 50%;
+          transform: scale(0.95);
         }
       }
     }
@@ -31,11 +28,9 @@
       font-weight: 300;
       text-shadow: 0 0 10px #000;
       pointer-events: none;
-      transition: opacity 0.3s;
       
       @media (min-width: 768px) {
         font-size: 16px;
-        opacity: 0;
       }
     }
   }
