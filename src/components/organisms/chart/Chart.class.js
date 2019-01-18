@@ -125,24 +125,19 @@ export default class Chart extends Base {
     let oChart = document.querySelector(".o-chart");
     let oChartPaths = oChart.querySelectorAll("path");
     let oChartTexts = oChart.querySelectorAll("text");
-    
-    for(let i = 0; i < oChartPaths.length; i++) {
-      oChartPaths[i].addEventListener("click", function() {
-        let key = this.dataset.key;
-        console.log(key);
-        for(let j = 0; j < oChartTexts.length; j++) {
-          if(key === oChartTexts[j].dataset.key) {
-            console.log(oChartTexts[j]);
-          }
-        }
-      })
-    }
 
     for(let k = 0; k < oChartPaths.length; k++) {
       oChartPaths[k].addEventListener("mouseenter", function() {
         for(let l = 0; l < oChartTexts.length; l++) {
           if(oChartTexts[l].dataset.key !== oChartPaths[k].dataset.key) {
             oChartTexts[l].classList.add("u-invisible");
+          }
+        }
+      });
+      oChartPaths[k].addEventListener("click", function() {
+        for(let l = 0; l < oChartTexts.length; l++) {
+          if(oChartTexts[l].dataset.key !== oChartPaths[k].dataset.key) {
+            oChartTexts[l].classList.toggle("u-invisible");
           }
         }
       });
