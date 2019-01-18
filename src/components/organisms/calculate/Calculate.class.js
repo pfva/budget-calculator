@@ -29,20 +29,21 @@ export default class Calculate extends Base {
     return this.calculateText.template();
   }
 
+  cleanupText(string) {
+    string = string.innerHTML.slice(2);
+    string = string.replace(/ /g, '');
+    string = parseInt(string);
+    return string;
+  }
+
   displayCalculateText() {
     let calculateButton = document.querySelector('.a-button');
-
     calculateButton.addEventListener("click", () => {
       let incomeTotal = document.querySelector('.m-total__sum--income');
       let expensesTotal = document.querySelector('.m-total__sum--expenses');
 
-      // Clean up dollar-prefixed strings to number
-      let incomeWithoutDollar = incomeTotal.innerHTML.slice(2);
-      let incomeWithoutSpaces = incomeWithoutDollar.replace(/ /g, '');
-      let incomeNumber = parseInt(incomeWithoutSpaces);
-      let expensesWithoutDollar = expensesTotal.innerHTML.slice(2);
-      let expensesWithoutSpaces = expensesWithoutDollar.replace(/ /g, '');
-      let expensesNumber = parseInt(expensesWithoutSpaces);
+      let incomeNumber = this.cleanupText(incomeTotal);
+      let expensesNumber = this.cleanupText(expensesTotal);
 
       let totalSum = incomeNumber - expensesNumber;
       let totalStr = totalSum.toString();
