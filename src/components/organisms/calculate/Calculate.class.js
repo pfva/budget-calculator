@@ -81,6 +81,14 @@ export default class Calculate extends Base {
         negativeCalculateText.classList.remove('u-hidden');
         negativeCalculateText.classList.add('u-fadein');
       }
+
+      window.setTimeout(function() {
+        window.scrollBy({
+          left: 0,
+          top: 380,
+          behavior: 'smooth'
+        })
+      }, 200);
     });
   }
 }
