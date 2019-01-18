@@ -82,15 +82,21 @@ export default class Chart extends Base {
 
     let g = svg.append("g")
       .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
-
+    
+    let pathIndex = 0;
     g.selectAll("path")
     .data(arcs)
     .enter()
     .append("path")
     .attr("fill", (d, i) => color(i))
     .attr("stroke", "lightgray")
-    .attr("d", arc);
+    .attr("d", arc)
+    .attr("data-key", function(i) {
+      i = pathIndex++;
+      return i;
+    });
 
+    let textIndex = 0;
     let text = g.selectAll("text")
       .data(arcs)
       .enter()
@@ -101,6 +107,10 @@ export default class Chart extends Base {
         let c =  arc.centroid(d);
         return "translate(" + c[0]*1.4 +"," + c[1]*1.4 + ")";
       })
+      .attr("data-key", function(i) {
+        i = textIndex++;
+        return i;
+      });
 
     text.append("tspan")
       .attr("text-anchor", "middle")
@@ -111,6 +121,37 @@ export default class Chart extends Base {
       .attr("x", 0)
       .attr("y", "0.7em")
       .text(d => d.data.percentage);
+
+    let oChart = document.querySelector(".o-chart");
+    let oChartPaths = oChart.querySelectorAll("path");
+    let oChartTexts = oChart.querySelectorAll("text");
+    
+    for(let i = 0; i < oChartPaths.length; i++) {
+      oChartPaths[i].addEventListener("click", function() {
+        let key = this.dataset.key;
+        console.log(key);
+        for(let j = 0; j < oChartTexts.length; j++) {
+          if(key === oChartTexts[j].dataset.key) {
+            console.log(oChartTexts[j]);
+          }
+        }
+      })
+    }
+
+    for(let k = 0; k < oChartPaths.length; k++) {
+      oChartPaths[k].addEventListener("mouseenter", function() {
+        for(let l = 0; l < oChartTexts.length; l++) {
+          if(oChartTexts[l].dataset.key !== oChartPaths[k].dataset.key) {
+            oChartTexts[l].classList.add("u-invisible");
+          }
+        }
+      });
+      oChartPaths[k].addEventListener("mouseleave", function() {
+        for(let m = 0; m < oChartTexts.length; m++) {
+          oChartTexts[m].classList.remove("u-invisible");
+        }
+      });
+    }
   }
 }
 
