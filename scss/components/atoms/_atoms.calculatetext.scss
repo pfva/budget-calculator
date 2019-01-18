@@ -38,10 +38,17 @@
     font-size: 18px;
     font-weight: 300;
     text-align: center;
+    margin-bottom: $spacing * 3;
 
     &--emoji {
       font-size: 28px;
       padding-left: $spacing;
     }
+  }
+
+  &__chart-intro {
+    font-size: 14px;
+    font-weight: 300;
+    text-align: center;
   }
 }

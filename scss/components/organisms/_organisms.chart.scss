@@ -1,10 +1,10 @@
 .o-chart {
   width: calc(100% - 18px);
-  height: 520px;
+  height: 460px;
 
-  @media(min-width: 768px) {
+  @media(min-width: 992px) {
     margin-top: $spacing * 6;
-    width: calc(100% - 50px);
+    height: 520px;
   }
 
   &--invisible-height {
