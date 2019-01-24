@@ -2,8 +2,7 @@
   color: $white;
   font-family: $heading-font-family;
   font-weight: 700;
-  box-shadow: 0 4px 0 $background-color; 
-              // 0 7px 0 $primary-color;
+  box-shadow: 0 4px 0 $background-color;
   margin-top: $spacing * 6;
   margin-bottom: $spacing * 2;
   padding-bottom: $spacing * 2;
@@ -25,20 +24,15 @@
 
 .o-header {
   height: 220px;
-  background: linear-gradient(90deg, $gradient-start-blue 0%, $gradient-finish-blue 100%);
+  background: linear-gradient(
+    90deg,
+    $gradient-start-blue 0%,
+    $gradient-finish-blue 100%
+  );
   margin-bottom: $spacing * 6;
 
   @media (min-width: 768px) {
     height: 260px;
     margin-bottom: $spacing * 12;
   }
-
-  // ::after {
-  //   content: '';
-  //   width: 100%;
-  //   height: 120px;
-  //   margin-top: -55px;
-  //   background: linear-gradient(90deg, #1CB5E0 0%, #000851 100%);
-  //   transform: skewY(-5deg);
-  // }
 }
