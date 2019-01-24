@@ -6,11 +6,9 @@ import { getIncomeTotal, getExpensesTotal } from './Total.template';
  *
  */
 export default class Total extends Base {
-
   constructor() {
     super();
   }
-
 }
 
 Total.prototype.getIncomeTotal = getIncomeTotal;

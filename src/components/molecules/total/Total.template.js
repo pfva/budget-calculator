@@ -16,7 +16,4 @@ function getExpensesTotal() {
   `;
 }
 
-export {
-  getIncomeTotal,
-  getExpensesTotal
-}
+export { getIncomeTotal, getExpensesTotal };

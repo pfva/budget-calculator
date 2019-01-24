@@ -6,7 +6,6 @@ import template from './ExpensesHeading.template';
  *
  */
 export default class ExpensesHeading extends Base {
-
   constructor() {
     super();
   }

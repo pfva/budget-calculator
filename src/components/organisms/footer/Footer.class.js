@@ -6,11 +6,9 @@ import template from './Footer.template';
  *
  */
 export default class Footer extends Base {
-
   constructor() {
     super();
   }
-
 }
 
 Footer.prototype.template = template;

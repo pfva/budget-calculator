@@ -1,6 +1,7 @@
 function getIncomeCategories() {
-  return this.incomeCategoryNames.map(name => {
-    return `
+  return this.incomeCategoryNames
+    .map(name => {
+      return `
       <div class="m-category">
         <p class="m-category__title">
           ${name}
@@ -8,12 +9,14 @@ function getIncomeCategories() {
         <input type="number" class="m-category__input m-category__input--income form-control text-right" placeholder="$" aria-label="Sum input">
       </div>
     `;
-  }).join('');
+    })
+    .join('');
 }
 
 function getExpensesCategories() {
-  return this.expensesCategoryNames.map(name => {
-    return `
+  return this.expensesCategoryNames
+    .map(name => {
+      return `
       <div class="m-category">
         <p class="m-category__title">
           ${name}
@@ -21,10 +24,8 @@ function getExpensesCategories() {
         <input type="number" class="m-category__input m-category__input--expenses form-control text-right" placeholder="$" aria-label="Sum input">
       </div>
     `;
-  }).join('');
+    })
+    .join('');
 }
 
-export {
-  getIncomeCategories, 
-  getExpensesCategories
-}
+export { getIncomeCategories, getExpensesCategories };

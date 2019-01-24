@@ -6,7 +6,6 @@ import template from './CalculateText.template';
  *
  */
 export default class CalculateText extends Base {
-
   constructor() {
     super();
   }

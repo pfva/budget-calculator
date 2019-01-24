@@ -16,7 +16,7 @@ class App extends Base {
   }
 
   /**
-   * Runs in the constructor and renders 
+   * Runs in the constructor and renders
    * all of the component templates
    *
    */
@@ -40,10 +40,10 @@ class App extends Base {
       this.calculate.displayCalculateText();
       this.chart.getExpenses();
       this.chart.showChart();
-    }
+    };
     window.onresize = () => {
       this.chart.drawChart();
-    }
+    };
   }
 }
 

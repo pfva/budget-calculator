@@ -9,7 +9,6 @@ import Total from '../../molecules/total/Total.class';
  *
  */
 export default class Expenses extends Base {
-
   constructor() {
     super();
     this.start();
@@ -40,22 +39,30 @@ export default class Expenses extends Base {
     let inputFieldsSum = 0;
     let expensesTotal = document.querySelector('.m-total__sum--expenses');
 
-    for(let i = 0; i < inputFields.length; i++) {
-      inputFields[i].addEventListener("keyup", () => {
+    for (let i = 0; i < inputFields.length; i++) {
+      inputFields[i].addEventListener('keyup', () => {
         inputFieldsSum = 0;
-        for(let i = 0; i < inputFields.length; i++) {
+        for (let i = 0; i < inputFields.length; i++) {
           inputFieldsSum += Number(inputFields[i].value);
         }
 
         let totalStr = inputFieldsSum.toString();
-        if(totalStr.length >= 4 && totalStr.length <= 6) {
-          inputFieldsSum = totalStr.substring(0, totalStr.length - 3) + " " + totalStr.substring(totalStr.length - 3);
+        if (totalStr.length >= 4 && totalStr.length <= 6) {
+          inputFieldsSum =
+            totalStr.substring(0, totalStr.length - 3) +
+            ' ' +
+            totalStr.substring(totalStr.length - 3);
         }
-        if(totalStr.length >= 7 && totalStr.length <= 9) {
-          inputFieldsSum = totalStr.substring(0, totalStr.length - 6) + " " + totalStr.substring(totalStr.length - 6, totalStr.length - 3) + " " + totalStr.substring(totalStr.length - 3);
+        if (totalStr.length >= 7 && totalStr.length <= 9) {
+          inputFieldsSum =
+            totalStr.substring(0, totalStr.length - 6) +
+            ' ' +
+            totalStr.substring(totalStr.length - 6, totalStr.length - 3) +
+            ' ' +
+            totalStr.substring(totalStr.length - 3);
         }
 
-        expensesTotal.innerHTML = "$ " + inputFieldsSum;
+        expensesTotal.innerHTML = '$ ' + inputFieldsSum;
       });
     }
   }

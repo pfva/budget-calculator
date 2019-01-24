@@ -6,11 +6,9 @@ import template from './SiteHeader.template';
  *
  */
 export default class SiteHeader extends Base {
-
   constructor() {
     super();
   }
-
 }
 
 SiteHeader.prototype.template = template;

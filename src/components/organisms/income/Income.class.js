@@ -9,7 +9,6 @@ import Total from '../../molecules/total/Total.class';
  *
  */
 export default class Income extends Base {
-
   constructor() {
     super();
     this.start();
@@ -38,10 +37,12 @@ export default class Income extends Base {
   animateNextArrow() {
     let inputFields = document.querySelectorAll('.m-category__input--income');
     let lastInput = inputFields[inputFields.length - 1];
-    lastInput.addEventListener("blur", () => {
+    lastInput.addEventListener('blur', () => {
       let incomeArrow = document.querySelector('.a-incomeheading__arrow-icon');
       incomeArrow.classList.remove('u-hovering');
-      let expensesArrow = document.querySelector('.a-expensesheading__arrow-icon');
+      let expensesArrow = document.querySelector(
+        '.a-expensesheading__arrow-icon'
+      );
       expensesArrow.classList.add('u-hovering');
     });
   }
@@ -51,22 +52,30 @@ export default class Income extends Base {
     let inputFieldsSum = 0;
     let incomeTotal = document.querySelector('.m-total__sum--income');
 
-    for(let i = 0; i < inputFields.length; i++) {
-      inputFields[i].addEventListener("keyup", () => {
+    for (let i = 0; i < inputFields.length; i++) {
+      inputFields[i].addEventListener('keyup', () => {
         inputFieldsSum = 0;
-        for(let i = 0; i < inputFields.length; i++) {
+        for (let i = 0; i < inputFields.length; i++) {
           inputFieldsSum += Number(inputFields[i].value);
         }
 
         let totalStr = inputFieldsSum.toString();
-        if(totalStr.length >= 4 && totalStr.length <= 6) {
-          inputFieldsSum = totalStr.substring(0, totalStr.length - 3) + " " + totalStr.substring(totalStr.length - 3);
+        if (totalStr.length >= 4 && totalStr.length <= 6) {
+          inputFieldsSum =
+            totalStr.substring(0, totalStr.length - 3) +
+            ' ' +
+            totalStr.substring(totalStr.length - 3);
         }
-        if(totalStr.length >= 7 && totalStr.length <= 9) {
-          inputFieldsSum = totalStr.substring(0, totalStr.length - 6) + " " + totalStr.substring(totalStr.length - 6, totalStr.length - 3) + " " + totalStr.substring(totalStr.length - 3);
+        if (totalStr.length >= 7 && totalStr.length <= 9) {
+          inputFieldsSum =
+            totalStr.substring(0, totalStr.length - 6) +
+            ' ' +
+            totalStr.substring(totalStr.length - 6, totalStr.length - 3) +
+            ' ' +
+            totalStr.substring(totalStr.length - 3);
         }
 
-        incomeTotal.innerHTML = "$ " + inputFieldsSum;
+        incomeTotal.innerHTML = '$ ' + inputFieldsSum;
       });
     }
   }

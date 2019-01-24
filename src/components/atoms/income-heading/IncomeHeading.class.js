@@ -6,7 +6,6 @@ import template from './IncomeHeading.template';
  *
  */
 export default class IncomeHeading extends Base {
-
   constructor() {
     super();
   }

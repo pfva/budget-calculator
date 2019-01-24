@@ -6,7 +6,6 @@ import template from './Button.template';
  *
  */
 export default class Button extends Base {
-
   constructor() {
     super();
   }
